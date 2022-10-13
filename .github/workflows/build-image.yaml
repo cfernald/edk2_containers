@@ -89,8 +89,8 @@ jobs:
           echo "Launching ${IMG}..."
           docker run \
             --rm \
-            --volume "${PWD}":C:\work \
-            --workdir C:\work \
+            --volume "${PWD}":"C:\\work" \
+            --workdir "C:\\work" \
             "${IMG}" \
             "powershell -c .github/workflows/test_build_edk2.ps1"
         shell: bash
