@@ -26,4 +26,3 @@ jobs:
         image_name: "Windows-2022"
         sub_images: "build"
         runs_on: "windows-latest"
-        check_cmd: "powershell -c .github\\workflows\\test_build_edk2.ps1"
