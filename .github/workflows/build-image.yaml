@@ -92,7 +92,7 @@ jobs:
             --volume ".\\":"C:\\work" \
             --workdir "C:\\work" \
             "${IMG}" \
-            "powershell -c .\\.github\\workflows\\test_build_edk2.ps1"
+            "\"powershell -c .\\.github\\workflows\\test_build_edk2.ps1\""
         shell: bash
 
       - name: Push
