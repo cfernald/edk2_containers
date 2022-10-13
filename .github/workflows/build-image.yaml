@@ -26,18 +26,12 @@ on:
         required: false
         description: "The OS used to build the docker image."
         default: "ubuntu-latest"
-      check_cmd:
-        type: string
-        required: false
-        description: "The OS used to build the docker image."
-        default: "./.github/workflows/test_build_edk2.sh"
 
 env:
   REGISTRY: ghcr.io
   REPOSITORY: ${{ github.repository }}
   IMAGE_NAME: ${{ inputs.image_name }}
   SUB_IMAGES: ${{ inputs.sub_images }}
-  CHECK_CMD: ${{ inputs.check_cmd }}
 
 jobs:
   build-and-push-image:
@@ -71,7 +65,8 @@ jobs:
           done
         shell: bash
 
-      - name: Check
+      - name: Check (Linux)
+        if: runner.os == 'Linux'
         run: |
           # Only check the last sub-image in the list (for now)
           sub=${SUB_IMAGES##* }
@@ -82,7 +77,22 @@ jobs:
             --volume "${PWD}":/work \
             --workdir /work \
             "${IMG}" \
-            "${CHECK_CMD}"
+            "./.github/workflows/test_build_edk2.sh"
+        shell: bash
+
+      - name: Check (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          # Only check the last sub-image in the list (for now)
+          sub=${SUB_IMAGES##* }
+          IMG=$(tr '[:upper:]' '[:lower:]' <<< "${REGISTRY}/${REPOSITORY}/${IMAGE_NAME}-${sub}:${short_sha}")
+          echo "Launching ${IMG}..."
+          docker run \
+            --rm \
+            --volume "${PWD}":C:\work \
+            --workdir C:\work \
+            "${IMG}" \
+            "./.github/workflows/test_build_edk2.ps1"
         shell: bash
 
       - name: Push
