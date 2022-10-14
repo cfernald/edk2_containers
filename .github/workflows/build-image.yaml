@@ -97,8 +97,7 @@ jobs:
             --rm \
             --volume "${GITHUB_WORKSPACE}":"C:\\work" \
             --workdir "C:\\work" \
-            "${IMG}" \
-            "'powershell -c echo here!'"
+            "${IMG}"
         shell: bash
 
       - name: Push
