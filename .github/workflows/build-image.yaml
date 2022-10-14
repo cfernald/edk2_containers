@@ -98,7 +98,7 @@ jobs:
             --volume "${GITHUB_WORKSPACE}":"C:\\work" \
             --workdir "C:\\work" \
             "${IMG}" \
-            "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+            "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -file .github\\workflows\\test_build_edk2.ps1"
         shell: bash
 
       - name: Push
