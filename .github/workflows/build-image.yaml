@@ -92,13 +92,13 @@ jobs:
             --volume "${GITHUB_WORKSPACE}":"C:\\work" \
             --workdir "C:\\work" \
             "${IMG}" \
-            "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -File C:\\work\\.github\\workflows\\test_build_edk2.ps1"
+            "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
           docker run \
             --rm \
             --volume "${GITHUB_WORKSPACE}":"C:\\work" \
             --workdir "C:\\work" \
             "${IMG}" \
-            "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -File C:\\work\\.github\\workflows\\test_build_edk2.ps1"
+            "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
         shell: bash
 
       - name: Push
