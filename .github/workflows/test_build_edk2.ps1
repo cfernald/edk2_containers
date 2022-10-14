@@ -7,6 +7,8 @@
 #
 ##
 
+Write-Output "Checking EDKII Build."
+
 if (Test-Path -Path 'edk2') {
   Write-Output "Deleting existing EDK2 repo."
   Remove-Item 'edk2' -Recurse
