@@ -89,16 +89,16 @@ jobs:
           echo "Launching ${IMG}..."
           echo docker run \
             --rm \
-            --volume "'${GITHUB_WORKSPACE}'":"'C:\\work'" \
+            --volume "${GITHUB_WORKSPACE}":"C:\\work" \
             --workdir "C:\\work" \
             "${IMG}" \
             "'powershell -c echo here!'"
           docker run \
             --rm \
-            --volume "'${GITHUB_WORKSPACE}'":"'C:\\work'" \
+            --volume "${GITHUB_WORKSPACE}":"C:\\work" \
             --workdir "C:\\work" \
             "${IMG}" \
-            "'powershell -c echo here!'"
+            "'powershell -c .\\.github\\workflows\\test_build_edk2.ps1'"
         shell: bash
 
       - name: Push
