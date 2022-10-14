@@ -98,7 +98,7 @@ jobs:
             --volume "${GITHUB_WORKSPACE}":"C:\\work" \
             --workdir "C:\\work" \
             "${IMG}" \
-            "dir /s C:\\work\\"
+            "dir C:\\"
         shell: bash
 
       - name: Push
