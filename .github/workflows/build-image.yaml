@@ -89,13 +89,13 @@ jobs:
           echo "Launching ${IMG}..."
           echo docker run \
             --rm \
-            --volume "${GITHUB_WORKSPACE}":"C:\\work" \
+            --volume "'${GITHUB_WORKSPACE}'":"'C:\\work'" \
             --workdir "C:\\work" \
             "${IMG}" \
             "'powershell -c echo here!'"
           docker run \
             --rm \
-            --volume "${GITHUB_WORKSPACE}":"C:\\work" \
+            --volume "'${GITHUB_WORKSPACE}'":"'C:\\work'" \
             --workdir "C:\\work" \
             "${IMG}" \
             "'powershell -c echo here!'"
