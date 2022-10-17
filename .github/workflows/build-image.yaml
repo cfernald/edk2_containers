@@ -87,18 +87,12 @@ jobs:
           sub=${SUB_IMAGES##* }
           IMG=$(tr '[:upper:]' '[:lower:]' <<< "${REGISTRY}/${REPOSITORY}/${IMAGE_NAME}-${sub}:${short_sha}")
           echo "Launching ${IMG}..."
-          echo docker run \
-            --rm \
-            --volume "${GITHUB_WORKSPACE}":"C:\\work" \
-            --workdir "C:\\work" \
-            "${IMG}" \
-            "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
           docker run \
             --rm \
             --volume "${GITHUB_WORKSPACE}":"C:\\work" \
             --workdir "C:\\work" \
             "${IMG}" \
-            "cmd /c .github\\workflows\\test_build_edk2.bat"
+            cmd /c .github\workflows\test_build_edk2.bat
         shell: bash
 
       - name: Push

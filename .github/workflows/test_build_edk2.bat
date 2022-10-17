@@ -21,12 +21,12 @@ python -m pip install --upgrade pip
 python -m pip install --upgrade -r pip-requirements.txt
 
 # Prepare repository
-stuart_setup -c .pytool/CISettings.py
-stuart_update -c .pytool/CISettings.py
+stuart_setup -c .pytool\CISettings.py
+stuart_update -c .pytool\CISettings.py
 
 python BaseTools/Edk2ToolsBuild.py -t VS2022
 
 echo "-----------------------------------------------------------------"
 echo " Building CI for X64"
 echo "-----------------------------------------------------------------"
-stuart_ci_build -c .\CISettings.py TOOL_CHAIN_TAG=VS2022
+stuart_ci_build -c .pytool\CISettings.py TOOL_CHAIN_TAG=VS2022
