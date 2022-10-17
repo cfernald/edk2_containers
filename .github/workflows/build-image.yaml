@@ -98,7 +98,7 @@ jobs:
             --volume "${GITHUB_WORKSPACE}":"C:\\work" \
             --workdir "C:\\work" \
             "${IMG}" \
-            "cmd /c .github\\workflows\\test_build_edk2.ps1"
+            "cmd /c .github\\workflows\\test_build_edk2.bat"
         shell: bash
 
       - name: Push
